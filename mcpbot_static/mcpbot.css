@@ -1,0 +1,29 @@
+
+.side-ad {
+    text-align: center;
+}
+
+#div { 
+  position:relative;
+  padding: 0;
+  margin: 0;
+  border: none;
+  height: 50px;
+  text-align: center;
+  float: right;  
+}
+
+.name { text-align: left; width: 25em; }
+.size { text-align: right; width: 7em; padding-right: 1em;}
+.date { text-align: right; width: 12em; padding-right: 1em;}
+.dl { text-align: right; padding-left: 0em; padding-right: 0em;}
+
+.middle {
+  height:100%; 
+  display:table; 
+  margin:0 auto;
+}
+.inner {
+  vertical-align:middle; 
+  display:table-cell;
+}

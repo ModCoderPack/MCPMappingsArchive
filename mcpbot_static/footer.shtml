@@ -1,0 +1,16 @@
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <p align="center"><small>Times shown are in Eastern Standard Time.</small></p>
+            <p align="center"><small>Designed using <a href="http://bootswatch.com/" target="blank">Bootswatch</a> via <a href="http://www.bootstrapcdn.com/" target="blank">BootstrapCDN</a>. Icons by <a href="http://www.ideocentric.com/technology/articles/title/apache-icons">Matt Comeione</a>. MCP logo by <a href="http://arisux.x10.mx/">Dustin Christensen</a></small></p>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="/mcpbot_static/bootswatch.js"></script>
+</body>
+</html>

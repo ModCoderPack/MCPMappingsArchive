@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <!-- Latest compiled and minified CSS & JS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/spacelab/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/mcpbot_static/mcpbot.css" media="screen">
+    <!--<link rel="stylesheet" href="/mcpbot_static/bootstrap.css" media="screen">-->
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">-->
+    <meta charset="UTF-8">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="/mcpbot_static/prettybsaai.js"></script>
+    <title>MCPBot - <!--#echo var="request_uri" --></title>
+</head>
+<body>
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MCPBot</a>
+            <a class="navbar-header" href="/"><img class="navbar-header" src="http://arisux.x10.mx/files/screenshots/mcp-logo-new-4.png" height="50" width="auto"/></a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="http://mcp.ocean-labs.de/news.php">MCP News</a>
+                </li>
+                <li>
+                    <a href="http://mcpold.ocean-labs.de/index.php/MCPBot_Reborn">Help</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="page-header">
+                <h1>MCPBot Data Exports</h1>
+                <p class="lead">Here you will find daily and stable exports of the MCP CSV files from MCPBot.</p>
+                <p><strong>Base Folder:</strong> Semi-live CSV files exported from the bot database every 10 minutes. These contain the latest changes.<br/>
+                <strong>Snapshot Folders:</strong> Daily exports of the latest mapping changes.<br/>
+                <strong>Stable Folders:</strong> Exports of approved mappings when they are committed.<br/>
+                <strong>*nodoc Folders:</strong> Same CSV files as their non-nodoc named counterparts, except for that they do not contain the comments.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="applycss" class="col-lg-10">
+            <h2>Index of <!--#echo var="request_uri" --></h2>

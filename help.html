@@ -1,0 +1,297 @@
+<html>
+<head lang="en">
+    <!-- Latest compiled and minified CSS & JS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://mcpbot.bspk.rs/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://mcpbot.bspk.rs/static/css/mcpbot.css" media="screen">
+
+    <meta charset="UTF-8">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <title>MCPBot Help</title>
+</head>
+<body>
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand active" href="http://mcpbot.bspk.rs/">MCPBot</a>
+            <a class="navbar-header" href="http://mcpbot.bspk.rs/"><img class="navbar-header" src="http://mcpbot.bspk.rs/static/img/mcp-logo-101x50.png" height="50" width="auto"/></a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://github.com/ModCoderPack/mcpbot" target="_blank"><i class="fa fa-bitbucket"></i> Source</a></li>
+                <li><a href="https://github.com/ModCoderPack/MCPBot-Issues" target="_blank"><i class="fa fa-exclamation-triangle"></i> Issues</a></li>
+                <li><a href="http://mcpbot.bspk.rs/help.html"><i class="fa fa-question-circle"></i> Help</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                    <h1><i class="fa fa-question-circle"></i> MCPBot Help</h1>
+                    <p class="lead">MCPBot_Reborn is used to query and update information on classes, fields, methods, and method parameters
+    in Minecraft and can be accessed through <a href="irc://irc.esper.net/" target="_blank">EsperNet</a> in the official MCP channels (<a href="irc://irc.esper.net/mcp" target="_blank">#mcp</a>, <a href="irc://irc.esper.net/mcp-modding" target="_blank">#mcp-modding</a>, <a href="irc://irc.esper.net/mcpbot" target="_blank">#mcpbot</a>). The bot can be used to get or set name and comment information for methods/fields/method params in the current release of MCP and can be used to query data from MCP versions 7.44 and above.</p>
+
+            </div>
+        </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2><i class="fa fa-info-circle"></i> General Use</h2>
+            <p>There are three main ways to send commands to the bot in order of preference:
+            </p>
+            <ul><li>In a DCC chat with MCPBot_Reborn. You will need to use the dcc command to access this. Please use this whenever possible so that MCPBot_Reborn can remain responsive and produce instant results. <b>Note that DCC is not supported over IPv6!</b>
+            </li><li>In private message with MCPBot_Reborn.
+            </li><li>In a channel with MCPBot_Reborn. You will need to prefix the command with&nbsp;!
+            </li></ul>
+            <p>Note: SRG names can be abbreviated from their SRG name 'func_200_a' to just '200' with most commands.
+            </p><p><b>gf</b>,  <b>gm</b>,  <b>gp</b>,  <b>gc</b>&nbsp;: Get information on a given member.  M for methods, F for fields, P for params, and C for classes (ie&nbsp;: gf =&gt; Get Field). It is possible to reference the searched member by notch name (a, b, etc), SRG name (func_200_b, field_200_c, etc), index (the numerical part of SRG name) or full name.
+            </p>
+<pre>  Usage &nbsp;: gf [&lt;class&gt;.]&lt;name&gt; [&lt;version&gt;]
+  Example: gf field_200_a
+  Example: gm Block.func_200_b
+  Example: gm Block.func_200_b 1.7.2
+</pre>
+            <p><b>sf</b>,  <b>sm</b>,  <b>sp</b>&nbsp;: Set information for a member. The member name MUST be expressed either in SRG notation or index. Please use camelCase and start method names with a verb.  Adding a description to every name is very important as well.  And please don't rename anything that doesn't have the default SRG name, it breaks people's mods.
+            </p>
+<pre>  Usage &nbsp;: sf &lt;searge name or index&gt; &lt;new name&gt; [description]
+  Example: sf 200 foobar This is a foobar field
+  Example: sm func_200_a foobar This is what the field is used for
+</pre>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2><i class="fa fa-commenting-o"></i> Method Javadocs</h2>
+            <p>One thing that's always been lacking in the decompiled code is proper method Javadocs. Here's how you can help fix that:
+            </p>
+            <ol><li><b>Always</b> give methods a description when naming them. This description should only describe what the method does and doesn't need to worry about parameters. The @param portion of the method comment is added by providing a comment when naming parameters.
+            </li><li><b>Always</b> name the parameters for methods that have them. This makes code comprehension much easier.
+            </li><li><b>Always</b> give parameters a comment. This allows us to build the Javadocs for methods <i>automatically</i> when exporting the CSV files.
+            </li></ol>
+            <p><b>Example: </b>
+            </p><p>Executing these commands:
+            </p>
+<pre>  sm func_177967_a offset Offsets this BlockPos n blocks in the given direction
+  sp p_177967_1_ facing The direction of the offset
+  sp p_177967_2_ n The number of blocks to offset by
+</pre>
+            <p>will produce:
+            </p>
+<pre>  /**
+   * Offsets this BlockPos n blocks in the given direction
+   *
+   * @param facing The direction of the offset
+   * @param n The number of blocks to offset by
+   */
+</pre>
+            <p><b>Other Notes:</b> (applies to fields as well)
+            </p>
+            <ul><li>Comments can contain "<b>\n</b>" to insert hard breaks. If you want a blank line to appear between paragraphs in a long description, use "<b>\n \n</b>" (note the space between the breaks).
+            </li><li>Good comments can help keep method names short and sweet. If a method is called "<b>get</b>", a good comment will tell you if the method is returning a static instance of the object, the "value" of the object, or some other thing.
+            </li><li><i><b>Every time</b></i> you name a method <i>without adding a comment</i>, <b>Cthulhu kills a kitten</b>. Please, think of the kittens.
+            </li></ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2><i class="fa fa-terminal"></i> Full Command List</h2>
+            <table class="table table-striped table-hover">
+                <tr>
+                    <th class="name"> Command
+                    </th><th class="version"> Params
+                </th><th class="name"> Description
+                </th></tr>
+                <tr>
+                    <th align="left" colspan="3"> General Commands
+                    </th></tr>
+                <tr>
+                    <th class="name"> help
+                    </th><td class="version"> [&lt;command&gt;|*]
+                </td><td class="name"> Lists available commands or help about a specific command.
+                </td></tr>
+                <tr>
+                    <th class="name"> more
+                    </th><td class="version"> [clear]
+                </td><td class="name"> Gets the next 10 queued command results. Commands that can queue results will tell you so.
+                </td></tr>
+                <tr>
+                    <th class="name"> dcc
+                    </th><td class="version"> N/A
+                </td><td class="name"> Requests a DCC connection to the bot.
+                </td></tr>
+                <tr>
+                    <th class="name"> version
+                    </th><td class="version"> N/A
+                </td><td class="name"> Gets info about the current version.
+                </td></tr>
+                <tr>
+                    <th class="name"> versions
+                    </th><td class="version"> N/A
+                </td><td class="name"> Gets info about versions that are available in the database.
+                </td></tr>
+                <tr>
+                    <th class="name"> exports
+                    </th><td class="version"> N/A
+                </td><td class="name"> Shows a link to the bot data export site.
+                </td></tr>
+                <tr>
+                    <th class="name"> testcsv
+                    </th><td class="version"> N/A
+                </td><td class="name"> Shows the same link as exports, but also shows the time since the last export.
+                </td></tr>
+                <tr>
+                    <th align="left" colspan="3"> Member Get Commands
+                    </th></tr>
+                <tr>
+                    <th class="name"> gc
+                    </th><td class="version"> &lt;class&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns class information. Defaults to current version. Version can be for MCP or MC.
+                </td></tr>
+                <tr>
+                    <th class="name"> gf
+                    </th><td class="version"> [&lt;class&gt;.]&lt;name&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns field information. Defaults to current version. Version can be for MCP or MC.
+                </td></tr>
+                <tr>
+                    <th class="name"> gm
+                    </th><td class="version"> [&lt;class&gt;.]&lt;name&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns method information. Defaults to current version. Version can be for MCP or MC.
+                </td></tr>
+                <tr>
+                    <th class="name"> gp
+                    </th><td class="version"> [[&lt;class&gt;.]&lt;method&gt;.]&lt;name&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns method parameter information. Defaults to current version. Version can be for MCP or MC. Obf class and method names not supported.
+                </td></tr>
+                <tr>
+                    <th class="name"> uf
+                    </th><td class="version"> &lt;class&gt;
+                </td><td class="name"> Returns a list of unnamed fields for a given class. Use DCC if the list is long.
+                </td></tr>
+                <tr>
+                    <th class="name"> um
+                    </th><td class="version"> &lt;class&gt;
+                </td><td class="name"> Returns a list of unnamed methods for a given class. Use DCC if the list is long.
+                </td></tr>
+                <tr>
+                    <th class="name"> up
+                    </th><td class="version"> &lt;class&gt;
+                </td><td class="name"> Returns a list of unnamed method parameters for a given class. Use DCC if the list is long.
+                </td></tr>
+                <tr>
+                    <th align="left" colspan="3"> Member Set Commands
+                    </th></tr>
+                <tr>
+                    <th class="name"> sf
+                    </th><td class="version"> &lt;srg name&gt; &lt;new name&gt; [&lt;comment&gt;]
+                </td><td class="name"> Sets the MCP name and comment for the SRG field specified. SRG index can also be used.
+                </td></tr>
+                <tr>
+                    <th class="name"> sm
+                    </th><td class="version"> &lt;srg name&gt; &lt;new name&gt; [&lt;comment&gt;]
+                </td><td class="name"> Sets the MCP name and comment for the SRG method specified. SRG index can also be used.
+                </td></tr>
+                <tr>
+                    <th class="name"> sp
+                    </th><td class="version"> &lt;srg name&gt; &lt;new name&gt; [&lt;comment&gt;]
+                </td><td class="name"> Sets the MCP name and comment for the SRG method parameter specified. SRG index can also be used.
+                </td></tr>
+                <tr>
+                    <th class="name"> undo
+                    </th><td class="version"> &lt;srg name&gt;
+                </td><td class="name"> Undoes the last *STAGED* name change to a given method/field/param. By default you can only undo your own changes.
+                </td></tr>
+                <tr>
+                    <th class="name"> redo
+                    </th><td class="version"> &lt;srg name&gt;
+                </td><td class="name"> Redoes the last *UNDONE* staged change to a given method/field/param. By default you can only redo your own changes.
+                </td></tr>
+                <tr>
+                    <th align="left" colspan="3"> Search Commands
+                    </th></tr>
+                <tr>
+                    <th class="name"> find
+                    </th><td class="version"> &lt;regex pattern&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns any entries matching a regex pattern. Only returns complete matches.
+                </td></tr>
+                <tr>
+                    <th class="name"> findc
+                    </th><td class="version"> &lt;regex pattern&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns class entries matching a regex pattern. Only returns complete matches.
+                </td></tr>
+                <tr>
+                    <th class="name"> findf
+                    </th><td class="version"> &lt;regex pattern&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns field entries matching a regex pattern. Only returns complete matches.
+                </td></tr>
+                <tr>
+                    <th class="name"> findm
+                    </th><td class="version"> &lt;regex pattern&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns method entries matching a regex pattern. Only returns complete matches.
+                </td></tr>
+                <tr>
+                    <th class="name"> findp
+                    </th><td class="version"> &lt;regex pattern&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns parameter entries matching a regex pattern. Only returns complete matches.
+                </td></tr>
+                <tr>
+                    <th class="name"> findall
+                    </th><td class="version"> &lt;regex pattern&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns any entries matching a regex pattern. Allows partial matches to be returned.
+                </td></tr>
+                <tr>
+                    <th class="name"> findallc
+                    </th><td class="version"> &lt;regex pattern&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns class entries matching a regex pattern. Allows partial matches to be returned.
+                </td></tr>
+                <tr>
+                    <th class="name"> findallf
+                    </th><td class="version"> &lt;regex pattern&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns field entries matching a regex pattern. Allows partial matches to be returned.
+                </td></tr>
+                <tr>
+                    <th class="name"> findallm
+                    </th><td class="version"> &lt;regex pattern&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns method entries matching a regex pattern. Allows partial matches to be returned.
+                </td></tr>
+                <tr>
+                    <th class="name"> findallp
+                    </th><td class="version"> &lt;regex pattern&gt; [&lt;version&gt;]
+                </td><td class="name"> Returns parameter entries matching a regex pattern. Allows partial matches to be returned.
+                </td></tr>
+            </table>
+        </div>
+    </div>
+
+
+        <div class="row">
+            <hr/>
+            <div class="col-sm-12">
+                <p align="center"><small>&copy; 2021 MCP Team</small></p>
+                <p align="center"><small>Designed using <a href="http://bootswatch.com/" target="blank">Bootswatch</a> via <a href="http://www.bootstrapcdn.com/" target="blank">BootstrapCDN</a>. MCP logo by <a href="http://arisux.com/" target="blank">Dustin Christensen</a></small></p>
+            </div>
+        </div>
+
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://mcpbot.bspk.rs/static/js/bootswatch.js"></script>
+</body>
+</html>
